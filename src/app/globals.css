@@ -1,26 +1,212 @@
 @import "tailwindcss";
 
+/* =========================================================
+   SMSL — Global Theme
+   Sri Manojavam Smart Logistics Private Limited
+========================================================= */
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
+
+  /* SMSL Brand Colors */
+  --smsl-blue: #075fae;
+  --smsl-blue-dark: #064b8c;
+  --smsl-blue-light: #eaf5ff;
+
+  --smsl-orange: #f47721;
+  --smsl-orange-dark: #df6414;
+  --smsl-orange-light: #fff3e9;
+
+  /* Neutral Colors */
+  --smsl-navy: #071a35;
+  --smsl-slate: #475569;
+  --smsl-muted: #94a3b8;
+  --smsl-border: #e2e8f0;
+  --smsl-section: #f8fafc;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-smsl-blue: var(--smsl-blue);
+  --color-smsl-blue-dark: var(--smsl-blue-dark);
+  --color-smsl-blue-light: var(--smsl-blue-light);
+
+  --color-smsl-orange: var(--smsl-orange);
+  --color-smsl-orange-dark: var(--smsl-orange-dark);
+  --color-smsl-orange-light: var(--smsl-orange-light);
+
+  --color-smsl-navy: var(--smsl-navy);
+  --color-smsl-slate: var(--smsl-slate);
+  --color-smsl-muted: var(--smsl-muted);
+  --color-smsl-border: var(--smsl-border);
+  --color-smsl-section: var(--smsl-section);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* =========================================================
+   Base
+========================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  min-height: 100%;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+
+  /* Better font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================================
+   Global Interactive Cursor
+========================================================= */
+
+/* Buttons */
+button,
+[type="button"],
+[type="submit"],
+[type="reset"] {
+  cursor: pointer;
+}
+
+/* Links */
+a {
+  cursor: pointer;
+}
+
+/* Selects */
+select {
+  cursor: pointer;
+}
+
+/* Labels containing interactive controls */
+label {
+  cursor: pointer;
+}
+
+/* Disabled controls should not look clickable */
+button:disabled,
+button[disabled],
+input:disabled,
+select:disabled,
+textarea:disabled {
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   Selection
+========================================================= */
+
+::selection {
+  background: var(--smsl-blue);
+  color: #ffffff;
+}
+
+/* =========================================================
+   Focus Accessibility
+========================================================= */
+
+:focus-visible {
+  outline: 2px solid var(--smsl-orange);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   Images
+========================================================= */
+
+img {
+  max-width: 100%;
+}
+
+/* =========================================================
+   Buttons / Links
+========================================================= */
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================================
+   Form Elements
+========================================================= */
+
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* =========================================================
+   Scrollbar — Premium Light Style
+========================================================= */
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--smsl-blue);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+/* =========================================================
+   Smooth Anchor Scrolling
+========================================================= */
+
+[id] {
+  scroll-margin-top: 110px;
+}
+
+/* =========================================================
+   Reduced Motion Accessibility
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
