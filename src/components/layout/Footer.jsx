@@ -312,7 +312,7 @@ export default function Footer() {
           <DevelopedByStaffArc />
 
           <div className="flex flex-wrap items-center gap-5 text-xs text-slate-500">
-            <Link
+            {/* <Link
               href="/privacy-policy"
               className="transition-colors hover:text-white"
             >
@@ -325,7 +325,7 @@ export default function Footer() {
               Terms & Conditions
             </Link>
 
-            <span className="h-3 w-px bg-white/10" />
+            <span className="h-3 w-px bg-white/10" /> */}
 
             <span>
               GSTIN: <span className="text-slate-400">36ABRCS0519B1ZG</span>
