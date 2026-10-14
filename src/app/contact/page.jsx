@@ -436,10 +436,11 @@ export default function ContactPage() {
             <div className="relative min-h-[260px] flex-1 overflow-hidden rounded-3xl border border-[#E2E8F0] bg-[#F8FAFC]">
               <iframe
                 title="Sri Manojavam Smart Logistics office location"
-                src="https://maps.google.com/maps?q=Tejha%20Heights%20DCB%20Bank%20Chandanagar%20Hyderabad%20500050&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.630227239797!2d78.3267967!3d17.4946946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93094846e27d%3A0x96c34c9011cae85e!2sSRI%20MANOJAVAM%20SMART%20LOGISTICS%20PRIVATE%20LIMITED!5e1!3m2!1sen!2sin!4v1791951389454!5m2!1sen!2sin"
                 className="absolute inset-0 h-full min-h-[260px] w-full border-0"
+                allowFullScreen
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+                referrerPolicy="strict-origin-when-cross-origin"
               />
             </div>
 
