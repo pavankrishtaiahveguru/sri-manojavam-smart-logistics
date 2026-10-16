@@ -45,7 +45,7 @@ export default function Navbar() {
               width={160}
               height={76}
               priority
-              className="h-[52px] w-[72px] shrink-0 object-contain sm:h-[60px] sm:w-[86px] lg:h-[66px] lg:w-[100px]"
+              className="h-13 w-18 shrink-0 object-contain sm:h-15 sm:w-21.5 lg:h-16.5 lg:w-25"
             />
             <span className="flex min-w-0 flex-col justify-center leading-tight">
               <span className="whitespace-nowrap text-[13px] font-extrabold tracking-tight text-[#071A35] sm:text-base lg:text-lg">
