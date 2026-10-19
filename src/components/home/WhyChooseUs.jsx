@@ -233,8 +233,17 @@ export default function WhyChooseUs() {
             </p>
 
             <p className="mt-1 text-xs leading-5 text-slate-400">
-              Professional logistics support from origin to destination.
+              Professional logistics support from origin to destination. Our
+              experienced team brings extensive industry knowledge and practical
+              expertise to logistics operations and customer service.
             </p>
+          </div>
+
+          <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3">
+            <span className="text-2xl font-bold text-[#F47721]">28+</span>
+            <span className="max-w-36 text-[10px] font-bold uppercase leading-4 tracking-wider text-white">
+              Years of Combined Staff Experience
+            </span>
           </div>
 
           <a

@@ -294,6 +294,43 @@ export const services = [
     metaDescription:
       "Explore SMSL supply chain solutions for shipment planning, logistics coordination, and operational support.",
   },
+  {
+    id: "un-box-packing-and-palletisation",
+    slug: "un-box-packing-and-palletisation",
+    number: "09",
+    title: "UN Box Packing and Palletisation",
+    titlePrefix: "UN Box Packing and",
+    highlightedTitle: "Palletisation",
+    cardDescription:
+      "Professional packaging and palletisation solutions for the safe handling, storage, and transportation of applicable regulated goods.",
+    heroDescription:
+      "Discuss UN-approved packaging and palletisation requirements for your goods, with solutions considered according to classification and applicable regulations.",
+    description:
+      "Professional UN-approved packaging and palletisation solutions designed to support the safe handling, storage, and transportation of applicable regulated goods. Packaging and handling requirements should be determined according to the relevant goods classification and applicable regulations.",
+    image: "/images/services/un-box-packing-palletisation.png",
+    imageAlt: "Hazardous goods freight representing regulated cargo packaging",
+    icon: "Package",
+    breadcrumb: [
+      { label: "Home", href: "/" },
+      { label: "Services", href: "/services" },
+      { label: "UN Box Packing and Palletisation" },
+    ],
+    features: [
+      "UN-certified packaging options where applicable",
+      "Secure packing",
+      "Palletisation",
+      "Cargo handling support",
+      "Transport-ready packaging solutions",
+    ],
+    industries: ["Chemicals", "Industrial materials", "Manufacturing"],
+    whyChooseUs:
+      "We discuss cargo classification and applicable requirements before identifying suitable packaging and palletisation arrangements for each shipment.",
+    ctaTitle: "Discuss packaging and palletisation needs",
+    ctaDescription:
+      "Share the goods classification, shipment details, and handling requirements so applicable packaging options can be discussed.",
+    metaDescription:
+      "Explore SMSL UN box packing and palletisation support for applicable regulated goods, based on cargo classification and relevant regulations.",
+  },
 ];
 
 export function getServiceBySlug(slug) {

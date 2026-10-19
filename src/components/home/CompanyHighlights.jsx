@@ -1,9 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CalendarDays, Globe2, Network, Route } from "lucide-react";
+import { CalendarDays, Globe2, Network, Route, UsersRound } from "lucide-react";
 
 const highlights = [
+  {
+    value: "8+",
+    label: "Years of Company Experience",
+    description:
+      "Building reliable logistics and transportation solutions since 2018",
+    icon: CalendarDays,
+  },
+  {
+    value: "28+",
+    label: "Combined Staff Experience",
+    description:
+      "Our experienced team brings extensive industry knowledge and practical expertise to logistics operations and customer service.",
+    icon: UsersRound,
+  },
   {
     value: "2018",
     label: "Established",
@@ -39,7 +53,7 @@ export default function CompanyHighlights() {
       <div className="pointer-events-none absolute -right-32 bottom-0 h-64 w-64 rounded-full bg-[#F47721]/10 blur-[100px]" />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 divide-y divide-white/10 sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
+        <div className="grid grid-cols-1 divide-y divide-white/10 sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-3">
           {highlights.map((item, index) => {
             const Icon = item.icon;
 

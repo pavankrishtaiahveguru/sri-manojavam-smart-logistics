@@ -142,7 +142,7 @@ export default function ServiceDetailPage({ service }) {
                   src={service.image}
                   alt={service.imageAlt}
                   fill
-                  priority
+                  preload
                   sizes="(max-width: 1024px) 100vw, 48vw"
                   className="object-cover"
                 />

@@ -21,6 +21,10 @@ const services = [
   { name: "Refrigerated Transportation", href: "/services" },
   { name: "Hazardous Goods", href: "/services" },
   { name: "Supply Chain Solutions", href: "/services" },
+  {
+    name: "UN Box Packing and Palletisation",
+    href: "/services/un-box-packing-and-palletisation",
+  },
 ];
 
 export default function Footer() {
@@ -109,15 +113,16 @@ export default function Footer() {
             {/* Established badge */}
             <div className="mt-6 inline-flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3">
               <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#F47721]/10">
-                <span className="text-sm font-bold text-[#F47721]">18+</span>
+                <span className="text-sm font-bold text-[#F47721]">8+</span>
               </div>
 
               <div>
                 <p className="text-xs font-semibold text-white">
-                  Years of experience
+                  Years of Company Experience
                 </p>
                 <p className="text-[11px] text-slate-500">
-                  Established in 2018
+                  Building reliable logistics and transportation solutions since
+                  2018.
                 </p>
               </div>
             </div>

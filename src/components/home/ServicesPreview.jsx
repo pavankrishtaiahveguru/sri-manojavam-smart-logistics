@@ -80,6 +80,15 @@ const services = [
     image: "/images/services/supply-chain.jpg",
     icon: Container,
   },
+  {
+    number: "09",
+    title: "UN Box Packing and Palletisation",
+    description:
+      "Professional packaging and palletisation solutions for applicable regulated goods.",
+    image: "/images/services/hazardous.jpg",
+    icon: Box,
+    href: "/services/un-box-packing-and-palletisation",
+  },
 ];
 
 export default function ServicesPreview() {
@@ -237,7 +246,7 @@ export default function ServicesPreview() {
 
                   {/* Learn more */}
                   <Link
-                    href="/services"
+                    href={service.href ?? "/services"}
                     className="
                       group/link mt-5 inline-flex
                       items-center gap-2

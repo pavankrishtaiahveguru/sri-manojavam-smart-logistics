@@ -17,6 +17,7 @@ import {
   ShieldCheck,
   Truck,
 } from "lucide-react";
+import { WHATSAPP_URL } from "@/data/contact";
 
 const contactDetails = [
   {
@@ -340,6 +341,9 @@ export default function ContactPage() {
                   <option value="Supply Chain Solutions">
                     Supply Chain Solutions
                   </option>
+                  <option value="UN Box Packing and Palletisation">
+                    UN Box Packing and Palletisation
+                  </option>
                   <option value="Other">Other</option>
                 </select>
               </FormField>
@@ -466,7 +470,7 @@ export default function ContactPage() {
             {/* WhatsApp */}
 
             <a
-              href="https://wa.me/919441446600"
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noreferrer"
               className="group flex items-center justify-between gap-4 rounded-2xl border border-emerald-200 bg-emerald-50 p-5 transition-colors hover:bg-emerald-100"

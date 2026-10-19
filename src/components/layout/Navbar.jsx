@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Menu, Phone, X, MessageCircle } from "lucide-react";
+import { WHATSAPP_URL } from "@/data/contact";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -173,7 +174,7 @@ export default function Navbar() {
                   Call Us
                 </a>
                 <a
-                  href="https://wa.me/919441446600"
+                  href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={closeMenu}

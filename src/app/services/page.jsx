@@ -149,7 +149,7 @@ export default function ServicesPage() {
                   src="/images/hero/hero-2.jpg"
                   alt="Freight truck transporting cargo on a highway"
                   fill
-                  priority
+                  preload
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />

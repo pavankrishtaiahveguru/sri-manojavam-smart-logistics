@@ -107,7 +107,8 @@ sri-manojavam-smart-logistics/
 │   │       ├── sea-freight/page.jsx
 │   │       ├── refrigerated-transportation/page.jsx
 │   │       ├── hazardous-goods/page.jsx
-│   │       └── non-hazardous-goods/page.jsx
+│   │       ├── non-hazardous-goods/page.jsx
+│   │       └── un-box-packing-palletisation/page.jsx
 │   ├── components/
 │   │   ├── layout/             # Navbar.jsx, Footer.jsx
 │   │   ├── home/               # Home page sections (Hero, ServicesPreview, ...)

@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
+import FloatingWhatsApp from "@/components/common/FloatingWhatsApp";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,8 +45,8 @@ export const metadata = {
   },
 
   icons: {
-    icon: "/images/smsl-logo.png",
-    apple: "/images/smsl-logo.png",
+    icon: "/logo/smsl-logo.png",
+    apple: "/logo/smsl-logo.png",
   },
 };
 
@@ -53,6 +54,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-screen flex-col bg-white text-slate-900">
@@ -64,6 +66,7 @@ export default function RootLayout({ children }) {
 
         {/* Global Footer */}
         <Footer />
+        <FloatingWhatsApp />
       </body>
     </html>
   );

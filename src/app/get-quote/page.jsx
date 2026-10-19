@@ -34,6 +34,7 @@ const serviceIcons = {
   "non-hazardous-goods-transportation": Package,
   "supply-chain": Boxes,
   "supply-chain-solutions": Boxes,
+  "un-box-packing-and-palletisation": Package,
 };
 
 const initialForm = {

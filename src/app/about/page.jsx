@@ -176,7 +176,7 @@ export default function AboutPage() {
                 src="/images/about/about-logistics.jpg"
                 alt="Transportation and logistics operations"
                 fill
-                priority
+                preload
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
@@ -201,11 +201,26 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="absolute -bottom-5 -left-2 rounded-2xl border border-white/10 bg-white p-4 shadow-xl sm:-left-5 sm:p-5">
-              <p className="text-2xl font-bold text-[#075FAE]">2018</p>
-              <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-slate-500">
-                Journey started
-              </p>
+            <div className="absolute -bottom-5 left-4 right-4 grid grid-cols-2 divide-x divide-slate-200 rounded-2xl border border-white/10 bg-white p-4 shadow-xl sm:left-7 sm:right-7 sm:p-5">
+              <div className="pr-3 sm:pr-5">
+                <p className="text-2xl font-bold text-[#075FAE]">8+</p>
+                <p className="mt-1 text-[9px] font-semibold uppercase leading-4 tracking-wider text-slate-500">
+                  Years of Company Experience
+                </p>
+                <p className="mt-1 text-[10px] leading-4 text-slate-500">
+                  Building reliable logistics and transportation solutions since
+                  2018.
+                </p>
+              </div>
+              <div className="pl-3 sm:pl-5">
+                <p className="text-2xl font-bold text-[#075FAE]">28+</p>
+                <p className="mt-1 text-[9px] font-semibold uppercase leading-4 tracking-wider text-slate-500">
+                  Years of Combined Staff Experience
+                </p>
+                <p className="mt-1 text-[10px] leading-4 text-slate-500">
+                  Industry knowledge and practical logistics expertise.
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
