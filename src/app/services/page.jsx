@@ -140,9 +140,9 @@ export default function ServicesPage() {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="relative"
+              className="relative min-w-0 px-1 sm:px-0"
             >
-              <div className="absolute -inset-3 rounded-[2rem] border border-white/10" />
+              <div className="absolute -inset-1 rounded-[1.5rem] border border-white/10 sm:-inset-2 sm:rounded-[1.75rem] lg:-inset-3 lg:rounded-[2rem]" />
 
               <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#10233F]">
                 <Image
@@ -153,28 +153,9 @@ export default function ServicesPage() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-[#071A35]/90 via-[#071A35]/10 to-transparent" />
-
-                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/15 bg-white/10 text-[#F47721] backdrop-blur-md">
-                      <Truck size={25} />
-                    </div>
-
-                    <div>
-                      <p className="text-sm font-bold text-white">
-                        Connected logistics
-                      </p>
-                      <p className="mt-1 text-xs text-slate-300">
-                        Planning, coordination, transportation.
-                      </p>
-                    </div>
-                  </div>
-                </div>
               </div>
 
-              <div className="absolute -bottom-5 -left-2 flex items-center gap-3 rounded-2xl border border-white/10 bg-white p-4 shadow-xl sm:-left-5 sm:p-5">
+              <div className="relative z-10 mt-3 flex w-full max-w-full items-center gap-3 rounded-2xl border border-white/10 bg-white p-4 shadow-xl sm:mt-4 sm:w-fit sm:p-5 lg:absolute lg:-bottom-16 lg:-left-5 lg:mt-0 lg:w-auto">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F47721]/10 text-[#F47721]">
                   <Zap size={22} />
                 </div>

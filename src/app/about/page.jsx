@@ -167,11 +167,11 @@ export default function AboutPage() {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="relative"
+            className="relative min-w-0 px-1 sm:px-0"
           >
-            <div className="absolute -inset-3 rounded-[2rem] border border-white/10" />
+            <div className="absolute -inset-1 rounded-[1.5rem] border border-white/10 sm:-inset-2 sm:rounded-[1.75rem] lg:-inset-3 lg:rounded-[2rem]" />
 
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#102846]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#102846] sm:rounded-[1.5rem]">
               <Image
                 src="/images/about/about-logistics.jpg"
                 alt="Transportation and logistics operations"
@@ -201,7 +201,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="absolute -bottom-5 left-4 right-4 grid grid-cols-2 divide-x divide-slate-200 rounded-2xl border border-white/10 bg-white p-4 shadow-xl sm:left-7 sm:right-7 sm:p-5">
+            <div className="relative z-10 mt-3 grid w-full grid-cols-2 divide-x divide-slate-200 rounded-2xl border border-white/10 bg-white p-3 shadow-xl sm:mt-4 sm:p-5 lg:absolute lg:-bottom-24 lg:left-7 lg:right-7 lg:mt-0 lg:w-auto">
               <div className="pr-3 sm:pr-5">
                 <p className="text-2xl font-bold text-[#075FAE]">8+</p>
                 <p className="mt-1 text-[9px] font-semibold uppercase leading-4 tracking-wider text-slate-500">
