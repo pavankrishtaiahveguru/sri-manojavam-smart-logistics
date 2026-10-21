@@ -3,7 +3,6 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { toast } from "sonner";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -101,10 +100,6 @@ export default function ContactPage() {
 
     openWhatsAppMessage(message);
     setStatus("success");
-    toast.info("Opening WhatsApp with your enquiry details.", {
-      description:
-        "Review the pre-filled message in WhatsApp and press Send to complete your enquiry.",
-    });
   };
 
   return (
