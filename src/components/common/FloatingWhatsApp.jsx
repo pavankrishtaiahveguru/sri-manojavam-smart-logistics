@@ -2,14 +2,13 @@
 
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
-import { WHATSAPP_URL } from "@/data/contact";
+import { createWhatsAppMessageUrl } from "@/lib/whatsapp";
 
-const whatsappMessage = encodeURIComponent(
-  "Hello Sri Manojavam Smart Logistics, I would like to enquire about your logistics and transportation services.",
-);
+const whatsappMessage =
+  "Hello Sri Manojavam Smart Logistics, I would like to enquire about your logistics and transportation services.";
 
 export default function FloatingWhatsApp() {
-  const whatsappUrl = `${WHATSAPP_URL}?text=${whatsappMessage}`;
+  const whatsappUrl = createWhatsAppMessageUrl(whatsappMessage);
 
   return (
     <Link

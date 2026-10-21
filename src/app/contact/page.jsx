@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { toast } from "sonner";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -10,14 +11,14 @@ import {
   CheckCircle2,
   Clock3,
   Mail,
-  MapPin,
-  MessageCircle,
   Phone,
   Send,
   ShieldCheck,
   Truck,
 } from "lucide-react";
 import { WHATSAPP_URL } from "@/data/contact";
+import { openWhatsAppMessage } from "@/lib/whatsapp";
+import { FaWhatsapp } from "react-icons/fa";
 
 const contactDetails = [
   {
@@ -62,10 +63,15 @@ const initialForm = {
 export default function ContactPage() {
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState("idle");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const submissionStartedRef = useRef(false);
 
   const updateField = (event) => {
     const { name, value } = event.target;
 
+    submissionStartedRef.current = false;
+    setIsSubmitting(false);
+    setStatus("idle");
     setForm((previous) => ({
       ...previous,
       [name]: value,
@@ -74,20 +80,31 @@ export default function ContactPage() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (submissionStartedRef.current) return;
+
+    submissionStartedRef.current = true;
+    setIsSubmitting(true);
+
+    const message = [
+      "Sri Manojavam Smart Logistics",
+      "New Contact Enquiry",
+      "",
+      `Full Name: ${form.name}`,
+      `Company Name: ${form.company || "Not provided"}`,
+      `Email Address: ${form.email}`,
+      `Phone Number: ${form.phone}`,
+      `Service Required: ${form.service}`,
+      "",
+      "Requirements:",
+      form.message,
+    ].join("\n");
+
+    openWhatsAppMessage(message);
     setStatus("success");
-
-    const subject = encodeURIComponent(`Logistics Enquiry - ${form.name}`);
-
-    const body = encodeURIComponent(
-      `Name: ${form.name}\n` +
-        `Company: ${form.company || "Not provided"}\n` +
-        `Email: ${form.email}\n` +
-        `Phone: ${form.phone}\n` +
-        `Service: ${form.service}\n\n` +
-        `Message:\n${form.message}`,
-    );
-
-    window.location.href = `mailto:sales@srimanojavamsmartlogistics.in?subject=${subject}&body=${body}`;
+    toast.info("Opening WhatsApp with your enquiry details.", {
+      description:
+        "Review the pre-filled message in WhatsApp and press Send to complete your enquiry.",
+    });
   };
 
   return (
@@ -366,16 +383,17 @@ export default function ContactPage() {
                   className="flex gap-3 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800"
                 >
                   <CheckCircle2 size={19} className="shrink-0" />
-                  Your email application should open with your enquiry details.
-                  Please send the email to complete your enquiry.
+                  WhatsApp is opening with your enquiry details. Review the
+                  message and press Send in WhatsApp to complete your enquiry.
                 </div>
               )}
 
               <button
                 type="submit"
-                className="group inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-[#075FAE] px-6 py-3 text-sm font-bold text-white shadow-lg shadow-[#075FAE]/15 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#064B8C] sm:w-auto"
+                disabled={isSubmitting}
+                className="group inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-[#075FAE] px-6 py-3 text-sm font-bold text-white shadow-lg shadow-[#075FAE]/15 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#064B8C] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
               >
-                Prepare Enquiry
+                {isSubmitting ? "Opening WhatsApp..." : "Continue on WhatsApp"}
                 <Send
                   size={16}
                   className="transition-transform duration-300 group-hover:translate-x-1"
@@ -383,8 +401,9 @@ export default function ContactPage() {
               </button>
 
               <p className="text-xs leading-5 text-slate-400">
-                Submitting opens your default email application. This form does
-                not send or store your details on a server.
+                WhatsApp opens with your message pre-filled. Please review it
+                and press Send in WhatsApp; this form does not send or store
+                your details on a server.
               </p>
             </form>
           </motion.div>
@@ -477,7 +496,7 @@ export default function ContactPage() {
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-600 text-white">
-                  <MessageCircle size={21} />
+                  <FaWhatsapp size={21} />
                 </div>
 
                 <div>

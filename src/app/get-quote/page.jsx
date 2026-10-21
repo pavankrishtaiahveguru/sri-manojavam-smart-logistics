@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useMemo, useState } from "react";
+import { Suspense, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
@@ -19,6 +19,7 @@ import {
   Route,
 } from "lucide-react";
 import { services } from "@/data/services";
+import { openWhatsAppMessage } from "@/lib/whatsapp";
 
 const serviceIcons = {
   transportation: Truck,
@@ -117,15 +118,20 @@ function GetQuoteForm({ serviceSlug }) {
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState({ type: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const submissionStartedRef = useRef(false);
 
   const updateField = (event) => {
     const { name, value } = event.target;
+    submissionStartedRef.current = false;
+    setIsSubmitting(false);
     setForm((previous) => ({ ...previous, [name]: value }));
     if (status.message) setStatus({ type: "", message: "" });
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
+    if (submissionStartedRef.current) return;
+
     setStatus({ type: "", message: "" });
 
     if (!selectedService) {
@@ -137,48 +143,34 @@ function GetQuoteForm({ serviceSlug }) {
       return;
     }
 
+    submissionStartedRef.current = true;
     setIsSubmitting(true);
 
-    const payload = {
-      ...form,
-      service: selectedService.slug,
-      serviceTitle: selectedService.title,
-      // Keep this field for compatibility with existing quote APIs.
-      shipmentType: selectedService.slug,
-    };
+    const message = [
+      "Sri Manojavam Smart Logistics",
+      "Quote Request",
+      "",
+      `Selected Service: ${selectedService.title}`,
+      `Pickup Location: ${form.pickupLocation}`,
+      `Delivery Location: ${form.deliveryLocation}`,
+      `Cargo Weight (MT): ${form.weight || "Not provided"}`,
+      `Cargo Commodity: ${form.commodity || "Not provided"}`,
+      "",
+      `Full Name: ${form.fullName}`,
+      `Company Name: ${form.companyName || "Not provided"}`,
+      `Email Address: ${form.email}`,
+      `Phone / WhatsApp Number: ${form.phone}`,
+      "",
+      "Company Requirements / Special Handling Instructions:",
+      form.requirements || "Not provided",
+    ].join("\n");
 
-    try {
-      const response = await fetch("/api/quotes", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      const result = await response.json().catch(() => ({}));
-
-      if (!response.ok) {
-        throw new Error(
-          result.message || "Unable to submit your request. Please try again.",
-        );
-      }
-
-      setStatus({
-        type: "success",
-        message:
-          result.message ||
-          "Your quote request has been submitted successfully. Our team will contact you soon.",
-      });
-      setForm(initialForm);
-    } catch (error) {
-      setStatus({
-        type: "error",
-        message:
-          error.message ||
-          "Something went wrong. Please try again or contact our team.",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    openWhatsAppMessage(message);
+    setStatus({
+      type: "success",
+      message:
+        "WhatsApp is opening with your quote details. Review the message and press Send in WhatsApp to complete your enquiry.",
+    });
   };
 
   return (
@@ -239,6 +231,8 @@ function GetQuoteForm({ serviceSlug }) {
                       key={service.slug}
                       type="button"
                       onClick={() => {
+                        submissionStartedRef.current = false;
+                        setIsSubmitting(false);
                         setSelectedSlug(service.slug);
                         if (status.message)
                           setStatus({ type: "", message: "" });
@@ -440,7 +434,8 @@ function GetQuoteForm({ serviceSlug }) {
           </button>
 
           <p className="mt-4 text-center text-xs leading-5 text-slate-400">
-            Your information will be used to respond to your logistics enquiry.
+            WhatsApp opens with your message pre-filled. Review the details
+            and press Send in WhatsApp to complete your quote enquiry.
           </p>
         </motion.form>
 
