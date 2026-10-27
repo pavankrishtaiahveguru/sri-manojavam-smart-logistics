@@ -1,8 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import "./globals.css";
 import FloatingWhatsApp from "@/components/common/FloatingWhatsApp";
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,6 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://srimanojavamlogistics.com"),
+
   title: {
     default: "Sri Manojavam Smart Logistics | SMSL",
     template: "%s | Sri Manojavam Smart Logistics",
@@ -39,6 +41,20 @@ export const metadata = {
     "Supply Chain Solutions",
   ],
 
+  alternates: {
+    canonical: "/",
+  },
+
+  openGraph: {
+    title: "Sri Manojavam Smart Logistics | SMSL",
+    description:
+      "Reliable logistics, transportation, freight forwarding and supply chain solutions across India.",
+    url: "https://srimanojavamlogistics.com",
+    siteName: "Sri Manojavam Smart Logistics",
+    locale: "en_IN",
+    type: "website",
+  },
+
   robots: {
     index: true,
     follow: true,
@@ -58,13 +74,8 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-screen flex-col bg-white text-slate-900">
-        {/* Global Navbar */}
         <Navbar />
-
-        {/* Main Page Content */}
         <main className="flex-1">{children}</main>
-
-        {/* Global Footer */}
         <Footer />
         <FloatingWhatsApp />
       </body>
